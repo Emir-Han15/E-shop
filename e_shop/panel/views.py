@@ -31,7 +31,7 @@ def edit_category(request , pk):
         form = CategoryForm(request.POST , request.FILES , instance=obj)
         if form.is_valid():
             form.save()
-            return redirect('/panel/category/')
+            return redirect('/panel/category/dd')
     return render(request , 'panel/category-form.html',context={'form':form})
 
 
