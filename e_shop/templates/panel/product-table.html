@@ -1,0 +1,131 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'panel/assets/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link href="{% static 'panel/assets/vendor/fonts/circular-std/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'panel/assets/libs/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'panel/assets/vendor/fonts/fontawesome/css/fontawesome-all.css' %}">
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+    {% include "panel/nav.html" %}
+        <div class="dashboard-wrapper">
+            <div class="container-fluid  dashboard-content">
+                <!-- ============================================================== -->
+                <!-- pageheader -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">Category Table</h2>
+                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Home</a></li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Category</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Category Table</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end pageheader -->
+                <!-- ============================================================== -->
+               
+                    <div class="row">
+                        <!-- ============================================================== -->
+                        <!-- basic table -->
+                        <!-- ============================================================== -->
+                        
+                        <!-- ============================================================== -->
+                        <!-- end basic table -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- striped table -->
+                        <!-- ============================================================== -->
+                        
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                            <div class="card">
+                                
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Category</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Stock</th>
+                                                <th scope="col">Created at</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for i in pro %}    
+                                            <tr>
+                                                <th scope="row">{{forloop.counter}}</th>
+                                                <td scope="row">{{i.name}}</td>
+                                                <td scope="row">{{i.category}}</td>
+                                                <td scope="row">{{i.price}} TMT</td>
+                                                {% if i.stock %}
+                                                    <td scope="row"><i class="fas fa-check-circle text-success"></i></td>
+                                                {% else %}
+                                                    <td scope="row"><i class="fas fa-times-circle text-danger"></i></td>
+                                                {% endif %}
+                                                <td scope="row">{{i.created_at}}</td>
+
+                                                <td scope="row">
+                                                    <a href="/panel/edit-product-form/{{i.id}}" class="btn btn-danger "><i class="fas fa-pencil-alt"></i>Edit</a>
+                                                    <a href="/panel/delete-product-form/{{i.id}}" class="btn btn-sm btn-outline-light"><i class="fas fa-trash-alt"></i></a>
+                                                    <a href="/panel/det_prod/{{i.id}}" class="btn btn-success">Details</a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}    
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- ============================================================== -->
+                        <!-- end striped table -->
+                        <!-- ============================================================== -->
+                    </div>
+                    
+                    
+               
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <script src="{% static 'panel/assets/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'panel/assets/vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'panel/assets/vendor/slimscroll/jquery.slimscroll.js' %}"></script>
+    <script src="{% static 'panel/assets/vendor/custom-js/jquery.multi-select.html' %}"></script>
+    <script src="{% static 'panel/assets/libs/js/main-js.js' %}"></script>
+</body>
+ 
+</html>
